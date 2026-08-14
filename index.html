@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ckb" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -181,6 +181,26 @@
             padding-bottom: 6px;
         }
 
+        /* Address Box Style */
+        .address-box {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            text-align: right;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .address-box p {
+            font-size: 13.5px;
+            color: #e2e8f0;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
         /* Interactive Links Section */
         .links-container {
             width: 100%;
@@ -356,39 +376,6 @@
             font-size: 12px;
             color: #888;
         }
-
-        .developer-box {
-            margin-top: 12px;
-            padding: 10px 15px;
-            background: rgba(230, 0, 35, 0.05);
-            border: 1px dashed rgba(230, 0, 35, 0.3);
-            border-radius: 10px;
-            display: inline-block;
-            transition: transform 0.2s ease;
-        }
-
-        .developer-box:hover {
-            transform: scale(1.03);
-        }
-
-        .developer-box a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .developer-box a:hover {
-            color: #e60023;
-        }
-
-        .dev-phone {
-            direction: ltr;
-            display: inline-block;
-            color: #e60023;
-            font-weight: 700;
-            margin-top: 3px;
-        }
     </style>
 </head>
 <body>
@@ -467,8 +454,11 @@
 
         <div class="section-title">
             <i class="fa-solid fa-location-dot"></i>
-          <span>شوێنی ئێمە</span>
-             <span>شەقامی بازنەی مەلیک مەحمود خوار نەخۆشخانەی فارووق سەروو کۆمپانیای جیهان</span>
+            <span>شوێنی ئێمە</span>
+        </div>
+
+        <div class="address-box">
+            <p>سلێمانی، شەقامی بازنەیی مەلیک مەحمود، خوار نەخۆشخانەی فارووق، سەروو کۆمپانیای جیهان.</p>
         </div>
 
         <div class="map-wrapper">
@@ -500,9 +490,6 @@
 
         <footer>
             <p>© ELIZA DECOR - All Rights Reserved</p>
-            
-            <div class="developer-box">
-            </div>
         </footer>
     </div>
 
