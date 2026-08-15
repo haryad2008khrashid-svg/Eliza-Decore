@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ckb" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -67,7 +67,7 @@
             100% { transform: translateY(-350px); }
         }
 
-        /* Shooting Stars (ئەستێرەی کلکدار) */
+        /* Shooting Stars */
         .shooting-star {
             position: fixed;
             top: 50%;
@@ -82,23 +82,9 @@
             opacity: 0;
         }
 
-        .shooting-star:nth-child(1) {
-            top: 10%;
-            left: 80%;
-            animation-delay: 0s;
-        }
-
-        .shooting-star:nth-child(2) {
-            top: 25%;
-            left: 60%;
-            animation-delay: 1.8s;
-        }
-
-        .shooting-star:nth-child(3) {
-            top: 5%;
-            left: 40%;
-            animation-delay: 3.5s;
-        }
+        .shooting-star:nth-child(1) { top: 10%; left: 80%; animation-delay: 0s; }
+        .shooting-star:nth-child(2) { top: 25%; left: 60%; animation-delay: 1.8s; }
+        .shooting-star:nth-child(3) { top: 5%; left: 40%; animation-delay: 3.5s; }
 
         @keyframes tail {
             0% { width: 0; opacity: 0; }
@@ -236,11 +222,6 @@
             background: rgba(255, 255, 255, 0.09);
         }
 
-        .link-card:active {
-            transform: translateY(2px) scale(0.97);
-            box-shadow: 0 2px 8px rgba(230, 0, 35, 0.2);
-        }
-
         .link-content {
             display: flex;
             align-items: center;
@@ -274,7 +255,7 @@
             color: #e60023;
         }
 
-        /* Social Platform Colors */
+        /* Social Colors */
         .instagram { color: #E1306C; }
         .whatsapp { color: #25D366; }
         .viber { color: #7360F2; }
@@ -335,17 +316,44 @@
             box-shadow: 0 4px 15px rgba(230, 0, 35, 0.4);
         }
 
-        /* Showcase Grid Section */
-        .showcase-grid {
+        /* Showcase Wrapper with Arrows */
+        .showcase-wrapper {
+            position: relative;
             width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Horizontal Scroll Showcase Section */
+        .showcase-scroll-container {
+            width: 100%;
+            display: flex;
             gap: 14px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(230, 0, 35, 0.6) rgba(255, 255, 255, 0.05);
+        }
+
+        .showcase-scroll-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .showcase-scroll-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .showcase-scroll-container::-webkit-scrollbar-thumb {
+            background: rgba(230, 0, 35, 0.6);
+            border-radius: 10px;
         }
 
         .media-card {
-            width: 100%;
-            height: 230px;
+            min-width: 220px;
+            height: 280px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 16px;
@@ -353,6 +361,8 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
             transition: border-color 0.3s ease, transform 0.3s ease;
             position: relative;
+            scroll-snap-align: start;
+            flex-shrink: 0;
         }
 
         .media-card:hover {
@@ -367,7 +377,41 @@
             display: block;
         }
 
-        /* Footer & Credits */
+        /* Scroll Navigation Arrows */
+        .scroll-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.75);
+            color: #ffffff;
+            border: 1px solid rgba(230, 0, 35, 0.6);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+        }
+
+        .scroll-arrow:hover {
+            background: #e60023;
+            border-color: #ff1a3c;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .scroll-left {
+            left: -15px;
+        }
+
+        .scroll-right {
+            right: -15px;
+        }
+
+        /* Footer */
         footer {
             margin-top: 35px;
             padding-top: 20px;
@@ -472,26 +516,65 @@
 
         <div class="section-title">
             <i class="fa-solid fa-gem"></i>
-            <span>نموونەی کارەکانمان</span>
+            <span>نموونەی کارەکانمان (ڤیدیۆ و وێنەکان)</span>
         </div>
 
-        <div class="showcase-grid">
-            <div class="media-card">
-                <video controls autoplay muted loop playsinline poster="image.jpg">
-                    <source src="video.mp4" type="video/mp4">
-                    پێڕەوکارەکەت پشتگیری ڤیدیۆ ناکات.
-                </video>
+        <!-- Horizontal Scroll Container with 4 Videos and 8 Images -->
+        <div class="showcase-wrapper">
+            <button class="scroll-arrow scroll-right" onclick="scrollGallery(240)">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <div class="showcase-scroll-container" id="galleryContainer">
+                <!-- 4 Videos -->
+                <div class="media-card">
+                    <video controls autoplay muted loop playsinline poster="1.jpeg">
+                        <source src="video1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="media-card">
+                    <video controls autoplay muted loop playsinline poster="2.jpeg">
+                        <source src="video2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="media-card">
+                    <video controls autoplay muted loop playsinline poster="3.jpeg">
+                        <source src="video3.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="media-card">
+                    <video controls autoplay muted loop playsinline poster="4.jpeg">
+                        <source src="video4.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <!-- 8 Images (.jpeg) -->
+                <div class="media-card"><img src="1.jpeg" alt="Eliza Decor Work"></div>
+                <div class="media-card"><img src="2.jpeg" alt="Eliza Decor Work"></div>
+                <div class="media-card"><img src="3.jpeg" alt="Eliza Decor Work"></div>
+                <div class="media-card"><img src="4.jpeg" alt="Eliza Decor Work"></div>
+                <div class="media-card"><img src="5.jpeg" alt="Eliza Decor Work"></div>
+                <div class="media-card"><img src="6.jpeg" alt="Eliza Decor Work"></div>
+                <div class="media-card"><img src="7.jpeg" alt="Eliza Decor Work"></div>
+                <div class="media-card"><img src="8.jpeg" alt="Eliza Decor Work"></div>
             </div>
 
-            <div class="media-card">
-                <img src="image.jpg" alt="Eliza Decor Detail Work">
-            </div>
+            <button class="scroll-arrow scroll-left" onclick="scrollGallery(-240)">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
         </div>
 
         <footer>
             <p>© ELIZA DECOR - All Rights Reserved</p>
         </footer>
     </div>
+
+    <script>
+        function scrollGallery(amount) {
+            const container = document.getElementById('galleryContainer');
+            container.scrollBy({ left: amount, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 </html>
