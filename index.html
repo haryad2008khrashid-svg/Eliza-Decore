@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ckb" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -167,26 +167,6 @@
             padding-bottom: 6px;
         }
 
-        /* Address Box Style */
-        .address-box {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 14px;
-            padding: 14px 16px;
-            margin-bottom: 12px;
-            text-align: right;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .address-box p {
-            font-size: 13.5px;
-            color: #e2e8f0;
-            line-height: 1.6;
-            font-weight: 500;
-        }
-
         /* Interactive Links Section */
         .links-container {
             width: 100%;
@@ -278,50 +258,13 @@
             color: #ffffff;
         }
 
-        /* Interactive Map Section */
-        .map-wrapper {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-        }
-
-        .map-frame {
-            width: 100%;
-            height: 200px;
-            border: none;
-            display: block;
-        }
-
-        .map-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px;
-            background: linear-gradient(135deg, rgba(230, 0, 35, 0.2), rgba(230, 0, 35, 0.4));
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .map-btn:hover {
-            background: linear-gradient(135deg, #e60023, #a00014);
-            box-shadow: 0 4px 15px rgba(230, 0, 35, 0.4);
-        }
-
         /* Showcase Wrapper with Arrows */
         .showcase-wrapper {
             position: relative;
             width: 100%;
             display: flex;
             align-items: center;
+            padding: 0 5px;
         }
 
         /* Horizontal Scroll Showcase Section */
@@ -382,18 +325,18 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.75);
+            background: rgba(0, 0, 0, 0.85);
             color: #ffffff;
             border: 1px solid rgba(230, 0, 35, 0.6);
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             z-index: 10;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
             transition: background 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
         }
 
@@ -403,12 +346,14 @@
             transform: translateY(-50%) scale(1.1);
         }
 
-        .scroll-left {
-            left: -15px;
+        /* سەهمی ڕاست */
+        .scroll-right {
+            right: -12px;
         }
 
-        .scroll-right {
-            right: -15px;
+        /* سەهمی چەپ */
+        .scroll-left {
+            left: -12px;
         }
 
         /* Footer */
@@ -497,31 +442,14 @@
         </div>
 
         <div class="section-title">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>شوێنی ئێمە</span>
-        </div>
-
-        <div class="address-box">
-            <p>سلێمانی، شەقامی بازنەیی مەلیک مەحمود، خوار نەخۆشخانەی فارووق، سەروو کۆمپانیای جیهان.</p>
-        </div>
-
-        <div class="map-wrapper">
-            <iframe class="map-frame" src="https://maps.google.com/maps?q=GFW5%2BF2R%20Eliza%20decor,%20Malik%20Mahmud%20Ring%20Road,%20Sulaymaniyah,%20Iraq&t=&z=16&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
-            
-            <a href="https://www.google.com/maps/search/?api=1&query=GFW5%2BF2R+Eliza+decor,+Malik+Mahmud+Ring+Road,+Sulaymaniyah" target="_blank" class="map-btn">
-                <i class="fa-solid fa-map-pin"></i>
-                <span>کردنەوە لە Google Maps</span>
-            </a>
-        </div>
-
-        <div class="section-title">
             <i class="fa-solid fa-gem"></i>
-            <span>نموونەی کارەکانمان (ڤیدیۆ و وێنەکان)</span>
+            <span>نموونەی کارەکانمان</span>
         </div>
 
-        <!-- Horizontal Scroll Container with 4 Videos and 8 Images -->
+        <!-- Horizontal Scroll Container with Corrected Arrow Directions -->
         <div class="showcase-wrapper">
-            <button class="scroll-arrow scroll-right" onclick="scrollGallery(240)">
+            <!-- سەهوی ڕاست (کلیک کردن لەسەری ئێستا دەچێت بۆ لای چەپ) -->
+            <button class="scroll-arrow scroll-right" onclick="scrollGallery(250)">
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
 
@@ -548,18 +476,20 @@
                     </video>
                 </div>
 
-                <!-- 8 Images (.jpeg) -->
-                <div class="media-card"><img src="1.jpeg" alt="Eliza Decor Work"></div>
-                <div class="media-card"><img src="2.jpeg" alt="Eliza Decor Work"></div>
-                <div class="media-card"><img src="3.jpeg" alt="Eliza Decor Work"></div>
-                <div class="media-card"><img src="4.jpeg" alt="Eliza Decor Work"></div>
-                <div class="media-card"><img src="5.jpeg" alt="Eliza Decor Work"></div>
-                <div class="media-card"><img src="6.jpeg" alt="Eliza Decor Work"></div>
-                <div class="media-card"><img src="7.jpeg" alt="Eliza Decor Work"></div>
-                <div class="media-card"><img src="8.jpeg" alt="Eliza Decor Work"></div>
+                <!-- 36 Images (.jpeg format, named 1 to 36) -->
+                <script>
+                    for (let i = 1; i <= 36; i++) {
+                        document.write(`
+                            <div class="media-card">
+                                <img src="${i}.jpeg" alt="Eliza Decor Work ${i}">
+                            </div>
+                        `);
+                    }
+                </script>
             </div>
 
-            <button class="scroll-arrow scroll-left" onclick="scrollGallery(-240)">
+            <!-- سەهوی چەپ (کلیک کردن لەسەری ئێستا دەچێت بۆ لای ڕاست) -->
+            <button class="scroll-arrow scroll-left" onclick="scrollGallery(-250)">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
         </div>
