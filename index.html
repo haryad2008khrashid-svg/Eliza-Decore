@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ckb" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -313,7 +313,7 @@
             transform: translateY(-3px);
         }
 
-        .media-card video, .media-card img {
+        .media-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -448,47 +448,25 @@
 
         <!-- Horizontal Scroll Container with Corrected Arrow Directions -->
         <div class="showcase-wrapper">
-            <!-- سەهوی ڕاست (کلیک کردن لەسەری ئێستا دەچێت بۆ لای چەپ) -->
+            <!-- سەهوی ڕاست -->
             <button class="scroll-arrow scroll-right" onclick="scrollGallery(250)">
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
 
             <div class="showcase-scroll-container" id="galleryContainer">
-                <!-- 4 Videos -->
-                <div class="media-card">
-                    <video controls autoplay muted loop playsinline poster="1.jpeg">
-                        <source src="video1.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="media-card">
-                    <video controls autoplay muted loop playsinline poster="2.jpeg">
-                        <source src="video2.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="media-card">
-                    <video controls autoplay muted loop playsinline poster="3.jpeg">
-                        <source src="video3.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="media-card">
-                    <video controls autoplay muted loop playsinline poster="4.jpeg">
-                        <source src="video4.mp4" type="video/mp4">
-                    </video>
-                </div>
-
-                <!-- 36 Images (.jpeg format, named 1 to 36) -->
+                <!-- 57 Images (.jpg format, named 1 to 57) -->
                 <script>
-                    for (let i = 1; i <= 36; i++) {
+                    for (let i = 1; i <= 57; i++) {
                         document.write(`
                             <div class="media-card">
-                                <img src="${i}.jpeg" alt="Eliza Decor Work ${i}">
+                                <img src="${i}.jpg" alt="Eliza Decor Work ${i}">
                             </div>
                         `);
                     }
                 </script>
             </div>
 
-            <!-- سەهوی چەپ (کلیک کردن لەسەری ئێستا دەچێت بۆ لای ڕاست) -->
+            <!-- سەهوی چەپ -->
             <button class="scroll-arrow scroll-left" onclick="scrollGallery(-250)">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
