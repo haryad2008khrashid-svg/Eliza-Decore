@@ -152,21 +152,6 @@
             font-weight: 600;
         }
 
-        /* Section Titles */
-        .section-title {
-            width: 100%;
-            text-align: right;
-            font-size: 14px;
-            color: #e60023;
-            font-weight: 700;
-            margin: 22px 0 12px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-bottom: 1px solid rgba(230, 0, 35, 0.3);
-            padding-bottom: 6px;
-        }
-
         /* Interactive Links Section */
         .links-container {
             width: 100%;
@@ -242,6 +227,7 @@
         .telegram { color: #0088cc; }
         .facebook { color: #1877F2; }
         .tiktok { color: #ffffff; }
+        .gallery-icon { color: #ff4d6d; }
 
         .call-btn {
             background: linear-gradient(135deg, #e60023, #a00014);
@@ -256,104 +242,6 @@
 
         .call-btn .arrow-icon {
             color: #ffffff;
-        }
-
-        /* Showcase Wrapper with Arrows */
-        .showcase-wrapper {
-            position: relative;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            padding: 0 5px;
-        }
-
-        /* Horizontal Scroll Showcase Section */
-        .showcase-scroll-container {
-            width: 100%;
-            display: flex;
-            gap: 14px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-            scroll-behavior: smooth;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(230, 0, 35, 0.6) rgba(255, 255, 255, 0.05);
-        }
-
-        .showcase-scroll-container::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .showcase-scroll-container::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-        }
-
-        .showcase-scroll-container::-webkit-scrollbar-thumb {
-            background: rgba(230, 0, 35, 0.6);
-            border-radius: 10px;
-        }
-
-        .media-card {
-            min-width: 220px;
-            height: 280px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-            transition: border-color 0.3s ease, transform 0.3s ease;
-            position: relative;
-            scroll-snap-align: start;
-            flex-shrink: 0;
-        }
-
-        .media-card:hover {
-            border-color: rgba(230, 0, 35, 0.6);
-            transform: translateY(-3px);
-        }
-
-        .media-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Scroll Navigation Arrows */
-        .scroll-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.85);
-            color: #ffffff;
-            border: 1px solid rgba(230, 0, 35, 0.6);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-            transition: background 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
-        }
-
-        .scroll-arrow:hover {
-            background: #e60023;
-            border-color: #ff1a3c;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        /* سەهمی ڕاست */
-        .scroll-right {
-            right: -12px;
-        }
-
-        /* سەهمی چەپ */
-        .scroll-left {
-            left: -12px;
         }
 
         /* Footer */
@@ -439,50 +327,30 @@
                 <i class="fa-solid fa-chevron-left arrow-icon"></i>
             </a>
 
-        </div>
+            <!-- بەشی 1 -->
+            <a href="https://haryad2008khrashid-svg.github.io/eliza.decor/" target="_blank" class="link-card">
+                <div class="link-content">
+                    <i class="fa-solid fa-images link-icon gallery-icon"></i>
+                    <span class="link-title">نموونەی کارەکان بەشی 1</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
 
-        <div class="section-title">
-            <i class="fa-solid fa-gem"></i>
-            <span>نموونەی کارەکانمان</span>
-        </div>
+            <!-- بەشی 2 -->
+            <a href="https://haryad2008khrashid-svg.github.io/ElizaDecore/" target="_blank" class="link-card">
+                <div class="link-content">
+                    <i class="fa-solid fa-photo-film link-icon gallery-icon"></i>
+                    <span class="link-title">نموونەی کارەکان بەشی 2</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
 
-        <!-- Horizontal Scroll Container with Corrected Arrow Directions -->
-        <div class="showcase-wrapper">
-            <!-- سەهوی ڕاست -->
-            <button class="scroll-arrow scroll-right" onclick="scrollGallery(250)">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
-
-            <div class="showcase-scroll-container" id="galleryContainer">
-                <!-- 57 Images (.jpg format, named 1 to 57) -->
-                <script>
-                    for (let i = 1; i <= 57; i++) {
-                        document.write(`
-                            <div class="media-card">
-                                <img src="${i}.jpg" alt="Eliza Decor Work ${i}">
-                            </div>
-                        `);
-                    }
-                </script>
-            </div>
-
-            <!-- سەهوی چەپ -->
-            <button class="scroll-arrow scroll-left" onclick="scrollGallery(-250)">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
         </div>
 
         <footer>
             <p>© ELIZA DECOR - All Rights Reserved</p>
         </footer>
     </div>
-
-    <script>
-        function scrollGallery(amount) {
-            const container = document.getElementById('galleryContainer');
-            container.scrollBy({ left: amount, behavior: 'smooth' });
-        }
-    </script>
 
 </body>
 </html>
